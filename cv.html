@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Cá Nhân - Backend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #eef2f7;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #0f172a, #1e293b);
+            color: #ffffff;
+            padding: 35px 28px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #ffffff;
+            margin: 0 auto 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            font-size: 48px;
+            font-weight: bold;
+            border: 5px solid #38bdf8;
+        }
+
+        .sidebar h1 {
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .sidebar .job-title {
+            text-align: center;
+            color: #bae6fd;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 17px;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            color: #38bdf8;
+        }
+
+        .sidebar-section p,
+        .sidebar-section li {
+            font-size: 14px;
+            color: #e5e7eb;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+        }
+
+        .skill-item {
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: #38bdf8;
+            border-radius: 20px;
+        }
+
+        .main-content {
+            padding: 40px 45px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #0f172a;
+            margin-bottom: 18px;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .section h2::before {
+            content: "";
+            width: 5px;
+            height: 26px;
+            background: #0ea5e9;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            border-radius: 10px;
+        }
+
+        .intro {
+            font-size: 15.5px;
+            text-align: justify;
+            color: #374151;
+        }
+
+        .card {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 18px;
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+
+        .card h3 {
+            color: #0f172a;
+            font-size: 19px;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .role {
+            font-weight: bold;
+            color: #2563eb;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #4b5563;
+            text-align: justify;
+        }
+
+        .timeline-item {
+            border-left: 3px solid #0ea5e9;
+            padding-left: 18px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 13px;
+            height: 13px;
+            background: #0ea5e9;
+            border-radius: 50%;
+            position: absolute;
+            left: -8px;
+            top: 6px;
+        }
+
+        .timeline-item h3 {
+            font-size: 18px;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .timeline-item p {
+            color: #4b5563;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        .achievement {
+            background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+            border-left: 5px solid #0ea5e9;
+            padding: 18px;
+            border-radius: 12px;
+            color: #0f172a;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 15px;
+            color: #6b7280;
+            font-size: 14px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 850px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .main-content {
+                padding: 30px 22px;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            .role {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="avatar">NP</div>
+            <h1>Phạm Thị Bích Ngọc</h1>
+            <p class="job-title">Backend Developer Intern</p>
+
+            <div class="sidebar-section">
+                <h2>Thông tin liên hệ</h2>
+                <p><strong>Email:</strong> phamthingocln12@gmail.com</p>
+                <p><strong>Điện thoại:</strong> 0355 598 517</p>
+                <p><strong>Địa chỉ:</strong> Hà Nội, Việt Nam</p>
+                <p><strong>GitHub:</strong> github.com/phamthingocln12-prog</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Học vấn</h2>
+                <p><strong>Học viện Công nghệ Bưu chính Viễn thông</strong></p>
+                <p>Ngành: Công nghệ Thông tin</p>
+                <p>GPA: 3.9/4.0</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Kỹ năng</h2>
+                <div class="skill-item">
+                    <div class="skill-name"><span>PHP</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>Laravel</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>MySQL</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name"><span>HTML/CSS</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Kỹ năng mềm</h2>
+                <ul>
+                    <li>Làm việc nhóm</li>
+                    <li>Phân tích hệ thống</li>
+                    <li>Quản lý tiến độ</li>
+                    <li>Chủ động học hỏi</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="section">
+                <h2>Giới thiệu</h2>
+                <p class="intro">
+                    Sinh viên năm cuối ngành Công nghệ Thông tin tại Học viện Công nghệ Bưu chính Viễn thông, có nền tảng học tập tốt và kinh nghiệm phát triển các hệ thống web backend bằng PHP, Laravel và MySQL. Tôi từng tham gia xây dựng nhiều sản phẩm như website đặt tour du lịch, hệ thống thi trắc nghiệm trực tuyến tích hợp AI, hệ thống phân tích dữ liệu xổ số và diễn đàn cộng đồng.<br>
+                    Mục tiêu của tôi là trở thành Backend Developer chuyên nghiệp, có khả năng xây dựng hệ thống ổn định, tối ưu và mang lại giá trị thực tế cho người dùng.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Dự án nổi bật</h2>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>XuanHien Travel – Online Tour Booking</h3>
+                        <span class="role">Vai trò: Leader</span>
+                    </div>
+                    <div class="tag-group">
+                        <span class="tag">Học thuật</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                    <p>
+                        Website đặt tour du lịch trực tuyến, hỗ trợ người dùng xem địa điểm, tra cứu lịch trình, so sánh lựa chọn và đặt tour thuận tiện. Hệ thống có các chức năng quản lý tour, quản lý lịch trình, đặt chỗ và tích hợp thanh toán online.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Travel Forum Website</h3>
+                        <span class="role">Vai trò: Leader</span>
+                    </div>
+                    <div class="tag-group">
+                        <span class="tag">Thực tế</span>
+                        <span class="tag">Laravel</span>
+                        <span class="tag">PHP</span>
+                    </div>
+                    <p>
+                        Diễn đàn du lịch cộng đồng cho phép người dùng chia sẻ kinh nghiệm, review địa điểm, thảo luận lịch trình, đánh giá khách sạn và quán ăn. Hệ thống tích hợp đăng bài, bình luận, lượt thích và quản lý tài khoản.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>AI QuizHub – Hệ thống thi trắc nghiệm online</h3>
+                        <span class="role">Vai trò: Member</span>
+                    </div>
+                    <div class="tag-group">
+                        <span class="tag">Học thuật</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">AI</span>
+                    </div>
+                    <p>
+                        Nền tảng ôn luyện và thi trắc nghiệm trực tuyến cho giáo viên và sinh viên. Hệ thống tích hợp AI nhằm hỗ trợ giải đáp thắc mắc, phân tích kết quả học tập và đề xuất bài luyện phù hợp với trình độ người học.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Lottery Analysis System</h3>
+                        <span class="role">Vai trò: Leader</span>
+                    </div>
+                    <div class="tag-group">
+                        <span class="tag">Thực tế</span>
+                        <span class="tag">Laravel</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                    <p>
+                        Hệ thống phân tích dữ liệu xổ số với chức năng thống kê tần suất, phân tích lô gan, thống kê đầu đuôi và trực quan hóa dữ liệu bằng biểu đồ. Hỗ trợ tra cứu kết quả theo ngày, tháng, năm và quản lý dữ liệu theo khu vực.
+                    </p>
+                </div>
+
+                
+            </section>
+
+            <section class="section">
+                <h2>Kinh nghiệm</h2>
+
+                <div class="timeline-item">
+                    <h3>Leader dự án nhóm & Đồ án môn học</h3>
+                    <p>
+                        Dẫn dắt nhóm phát triển nhiều dự án web từ giai đoạn phân tích yêu cầu, thiết kế cơ sở dữ liệu, phân chia công việc, xây dựng chức năng đến kiểm thử và hoàn thiện sản phẩm.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Part-time IT & Dự án thực tế</h3>
+                    <p>
+                        Tham gia phát triển các dự án web thực tế sử dụng PHP, Laravel và MySQL. Có kinh nghiệm xây dựng backend, quản lý cơ sở dữ liệu, xử lý nghiệp vụ hệ thống và tối ưu hiệu năng ứng dụng.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Thành tích</h2>
+                <div class="achievement">
+                    Đạt giải Nhì cuộc thi ICPC PTIT 2025, thể hiện năng lực giải thuật, tư duy lập trình logic và khả năng giải quyết vấn đề tốt.
+                </div>
+            </section>
+
+            <div class="footer">
+                © 2026 Ngọc Phạm. Personal CV Website.
+            </div>
+        </main>
+    </div>
+</body>
+</html>
